@@ -14,9 +14,7 @@ app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
 app.use(cors({
-    origin: ["https://works-wheat-psi.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
-    credentials: true
+    origin: "https://works-wheat-psi.vercel.app",
 }))
 connectToDB()
 
