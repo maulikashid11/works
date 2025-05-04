@@ -8,14 +8,14 @@ import connectToDB from './utils/db.js'
 import cors from 'cors'
 import { v2 as cloudinary } from 'cloudinary';
 const app = express()
-
 dotenv.config()
-app.use(express.json())
-app.use(express.urlencoded({ extended: true }))
-app.use(cookieParser())
+
 app.use(cors({
     origin: 'https://works-wheat-psi.vercel.app'
 }));
+app.use(express.json())
+app.use(express.urlencoded({ extended: true }))
+app.use(cookieParser())
 connectToDB()
 
 cloudinary.config({
