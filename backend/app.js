@@ -12,8 +12,7 @@ dotenv.config()
 connectToDB()
 
 app.use(cors({
-    origin: ["https://works-wheat-psi.vercel.app/"],
-    credentials: true
+    origin: ["https://works-wheat-psi.vercel.app"],
 }))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
