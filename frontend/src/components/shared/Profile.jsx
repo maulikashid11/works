@@ -10,12 +10,11 @@ const Profile = () => {
   const [jobs, setJobs] = useState([])
   useEffect(() => {
     async function getJobs() {
-      const res = await axios.get('http://localhost:3000/api/v1/job/getalljobs')
+      const res = await axios.get('https://works-by4w.vercel.app/api/v1/job/getalljobs')
       setJobs(res.data.jobs)
     }
     getJobs()
   }, [])
-  console.log(user)
   return (
     <div className='p-5 text-lg'>
       <h1 className='text-3xl mb-5'>Profile</h1>

@@ -26,7 +26,7 @@ const CreateJob = () => {
         e.preventDefault()
         const { title, description, salary, experience, requirement } = details
         try {
-            const res = await axios.post("http://localhost:3000/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
+            const res = await axios.post("https://works-by4w.vercel.app/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
                 headers: {
                     token
                 }
@@ -36,7 +36,7 @@ const CreateJob = () => {
                 navigate(`/companies/${id}`)
             }
         } catch (error) {
-            toast.error(error.response.data.message)   
+            toast.error(error.response.data.message)
         }
     }
 

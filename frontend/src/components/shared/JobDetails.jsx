@@ -12,11 +12,11 @@ const JobDetails = () => {
     const location = useLocation()
     const job = location.state
     const applyToJob = () => {
-        fetch("http://localhost:3000/api/v1/user/applytojob", {
+        fetch("https://works-by4w.vercel.app/api/v1/user/applytojob", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",
-                "token":token
+                "token": token
             },
             body: JSON.stringify({ jobId: job._id })
         }).then((res) => res.json()).
@@ -40,7 +40,7 @@ const JobDetails = () => {
             <p className='text-lg '>Applicants: {job.applications.length}</p>
             <p className='text-lg '>Requirement : {job.requirement}</p>
             <p className='text-lg '>Posted : {daysAgoFunction(job.createdAt) === 0 ? 'today' : `${daysAgoFunction(job.createdAt)} days ago`}</p>
-            <Button className="my-2 bg-blue-500" onClick={e => applyToJob()}>{job.applications.some(app=>app.user._id === user._id) ? 'Applied' : 'Apply Now'}</Button>
+            <Button className="my-2 bg-blue-500" onClick={e => applyToJob()}>{job.applications.some(app => app.user._id === user._id) ? 'Applied' : 'Apply Now'}</Button>
         </div>
     )
 }

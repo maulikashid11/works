@@ -13,7 +13,7 @@ const Create = () => {
         file: '',
     })
     const navigate = useNavigate()
-    const {token,user} = useSelector(store=>store.auth);
+    const { token, user } = useSelector(store => store.auth);
 
     const handleChange = (e) => {
         setDetails({ ...details, [e.target.name]: e.target.value })
@@ -30,7 +30,7 @@ const Create = () => {
         formData.append("website", website)
         formData.append("location", location)
         formData.append("file", file)
-        const res = await axios.post("http://localhost:3000/api/v1/company/register", formData, {
+        const res = await axios.post("https://works-by4w.vercel.app/api/v1/company/register", formData, {
             headers: {
                 "Content-type": "multipart/form-data",
                 token

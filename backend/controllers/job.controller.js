@@ -46,7 +46,6 @@ export async function getJobs(req, res) {
         }).populate({
             path: "company"
         })
-        console.log(jobs)
         if (!jobs) {
             return res.status(404).json({ success: false, message: "Jobs not found" })
         }
@@ -72,7 +71,6 @@ export async function acceptApplication(req, res) {
 
         const job = await Job.findOne({ _id: jobId })
         const index = job.applications.findIndex(el => el.user.toString() === userId.toString())
-        console.log(job,index)
         if (!job ) {
             return res.status(404).json({ success: false, message: "something went wrong" })
         }

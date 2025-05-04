@@ -9,7 +9,7 @@ const Companies = () => {
   const { token, user } = useSelector(store => store.auth)
   useEffect(() => {
     async function getCompanies() {
-      const res = await axios.get('http://localhost:3000/api/v1/company/get', {
+      const res = await axios.get('https://works-by4w.vercel.app/api/v1/company/get', {
         headers: {
           token
         },
@@ -23,19 +23,19 @@ const Companies = () => {
       <h1 className='text-xl font-bold'>Your companies</h1>
       <Link to="/create" className="m-2 bg-green-500 p-2 text-white inline-block rounded-md">Create Company</Link>
       <div>
-      
-      {
-        companies.length > 0 ?
-        companies.map((company) => (
-          <Link to={`/companies/${company._id}`} className='company flex gap-4 my-3'>
-              <Avatar className="border border-zinc-600 w-10 ">
-                <AvatarImage src={company?.companyLogo} />
-              </Avatar>
-              <p>{company.name}</p>
-            </Link>
-          )) : <div>No companies found </div>
+
+        {
+          companies.length > 0 ?
+            companies.map((company) => (
+              <Link to={`/companies/${company._id}`} className='company flex gap-4 my-3'>
+                <Avatar className="border border-zinc-600 w-10 ">
+                  <AvatarImage src={company?.companyLogo} />
+                </Avatar>
+                <p>{company.name}</p>
+              </Link>
+            )) : <div>No companies found </div>
         }
-        </div>
+      </div>
     </div>
   )
 }

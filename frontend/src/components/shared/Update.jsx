@@ -10,14 +10,14 @@ const Update = () => {
   const [details, setDetails] = useState({
     fullname: '',
     email: '',
-    bio:'',
-    experience:'',
-    skills:'',
+    bio: '',
+    experience: '',
+    skills: '',
     file: '',
   })
   const navigate = useNavigate()
   const dispatch = useDispatch()
-  const {token,user} = useSelector(store=>store.auth)
+  const { token, user } = useSelector(store => store.auth)
   const handleChange = (e) => {
     setDetails({ ...details, [e.target.name]: e.target.value })
   }
@@ -28,7 +28,7 @@ const Update = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     try {
-      const { fullname, email, salary,bio,experience,skills, file } = details
+      const { fullname, email, salary, bio, experience, skills, file } = details
       const formData = new FormData()
       formData.append("fullname", fullname)
       formData.append("email", email)
@@ -37,14 +37,14 @@ const Update = () => {
       formData.append("bio", bio)
       formData.append("experience", experience)
       formData.append("file", file)
-      const res = await axios.post("http://localhost:3000/api/v1/user/update", formData, {
+      const res = await axios.post("https://works-by4w.vercel.app/api/v1/user/update", formData, {
         headers: {
           "Content-type": "multipart/form-data",
           token
         }
       })
       if (res.data.success) {
-        const user = await axios.get('http://localhost:3000/api/v1/user/getuser', {
+        const user = await axios.get('https://works-by4w.vercel.app/api/v1/user/getuser', {
           headers: {
             token
           }
@@ -67,7 +67,7 @@ const Update = () => {
 
         <label className='block text-lg mt-5' htmlFor="email">Email:</label>
         <input onChange={(e) => { handleChange(e) }} value={details.email} name='email' minLength={5} className='border w-full mt-1 rounded-md p-2' type="email" id='email' />
-        
+
         <label className='block text-lg mt-5' htmlFor="bio">bio:</label>
         <input onChange={(e) => { handleChange(e) }} value={details.bio} name='bio' minLength={5} className='border w-full mt-1 rounded-md p-2' type="text" id='bio' />
         <label className='block text-lg mt-5' htmlFor="skills">skills:</label>

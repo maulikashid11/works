@@ -11,7 +11,7 @@ const CompanyJobs = () => {
     useEffect(() => {
         if (token && id) {
             async function getJobs() {
-                const res = await axios.get('http://localhost:3000/api/v1/job/getjobs', {
+                const res = await axios.get('https://works-by4w.vercel.app/api/v1/job/getjobs', {
                     headers: {
                         token,
                     },

@@ -7,7 +7,7 @@ import axios from 'axios'
 import { useSelector } from 'react-redux'
 
 const CompanyJobDetails = () => {
-    const {token,user} = useSelector(store=>store.auth)
+    const { token, user } = useSelector(store => store.auth)
     const location = useLocation()
     const job = location.state
     const ref = useRef(null)
@@ -15,7 +15,7 @@ const CompanyJobDetails = () => {
     const acceptApplication = async (id, status) => {
         try {
             if (status == "pending") {
-                const res = await axios.post('http://localhost:3000/api/v1/job/accept', {
+                const res = await axios.post('https://works-by4w.vercel.app/api/v1/job/accept', {
                     jobId: job._id,
                     userId: id
                 }, {
@@ -23,7 +23,7 @@ const CompanyJobDetails = () => {
                         token
                     }
                 })
-                if(res.data.success){
+                if (res.data.success) {
                     ref.current.innerText = 'accepted'
                 }
             }
@@ -60,7 +60,7 @@ const CompanyJobDetails = () => {
                             <div>{ap.user.fullname}</div>
                             <div>{ap.user.bio}</div>
                             <a href={ap.user.resume}>resume</a>
-                            <div className='cursor-pointer' ref={ref} onClick={e=>acceptApplication(ap.user._id, ap.status)}>{ap.status}</div>
+                            <div className='cursor-pointer' ref={ref} onClick={e => acceptApplication(ap.user._id, ap.status)}>{ap.status}</div>
                         </div>
                     ))
                 }
