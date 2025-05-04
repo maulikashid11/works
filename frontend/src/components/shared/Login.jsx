@@ -21,10 +21,10 @@ const Login = () => {
     e.preventDefault()
     try {
       const { email, password, role } = details
-      const res = await axios.post('https://works-by4w.vercel.app/api/v1/user/login', { email, password, role })
+      const res = await axios.post('https://works-vpbm.onrender.com/api/v1/user/login', { email, password, role })
       if (res.data.success) {
         dispatch(setToken(res.data.token))
-        const user = await axios.get('https://works-by4w.vercel.app/api/v1/user/getuser', {
+        const user = await axios.get('https://works-vpbm.onrender.com/api/v1/user/getuser', {
           headers: {
             "Content-Type": "application/json",
             token: res.data.token

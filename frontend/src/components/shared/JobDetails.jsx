@@ -12,7 +12,7 @@ const JobDetails = () => {
     const location = useLocation()
     const job = location.state
     const applyToJob = () => {
-        fetch("https://works-by4w.vercel.app/api/v1/user/applytojob", {
+        fetch("https://works-vpbm.onrender.com/api/v1/user/applytojob", {
             method: "POST",
             headers: {
                 "Content-type": "application/json",

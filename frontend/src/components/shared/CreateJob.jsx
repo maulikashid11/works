@@ -26,7 +26,7 @@ const CreateJob = () => {
         e.preventDefault()
         const { title, description, salary, experience, requirement } = details
         try {
-            const res = await axios.post("https://works-by4w.vercel.app/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
+            const res = await axios.post("https://works-vpbm.onrender.com/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
                 headers: {
                     token
                 }

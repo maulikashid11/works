@@ -9,7 +9,7 @@ const Companies = () => {
   const { token, user } = useSelector(store => store.auth)
   useEffect(() => {
     async function getCompanies() {
-      const res = await axios.get('https://works-by4w.vercel.app/api/v1/company/get', {
+      const res = await axios.get('https://works-vpbm.onrender.com/api/v1/company/get', {
         headers: {
           token
         },

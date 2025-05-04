@@ -37,14 +37,14 @@ const Update = () => {
       formData.append("bio", bio)
       formData.append("experience", experience)
       formData.append("file", file)
-      const res = await axios.post("https://works-by4w.vercel.app/api/v1/user/update", formData, {
+      const res = await axios.post("https://works-vpbm.onrender.com/api/v1/user/update", formData, {
         headers: {
           "Content-type": "multipart/form-data",
           token
         }
       })
       if (res.data.success) {
-        const user = await axios.get('https://works-by4w.vercel.app/api/v1/user/getuser', {
+        const user = await axios.get('https://works-vpbm.onrender.com/api/v1/user/getuser', {
           headers: {
             token
           }

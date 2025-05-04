@@ -15,7 +15,7 @@ const CompanyJobDetails = () => {
     const acceptApplication = async (id, status) => {
         try {
             if (status == "pending") {
-                const res = await axios.post('https://works-by4w.vercel.app/api/v1/job/accept', {
+                const res = await axios.post('https://works-vpbm.onrender.com/api/v1/job/accept', {
                     jobId: job._id,
                     userId: id
                 }, {

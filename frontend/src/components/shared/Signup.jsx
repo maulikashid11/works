@@ -34,7 +34,7 @@ const Signup = () => {
       formData.append("password", password)
       formData.append("role", role)
       formData.append("file", file)
-      const res = await axios.post("https://works-by4w.vercel.app/api/v1/user/signup", formData, {
+      const res = await axios.post("https://works-vpbm.onrender.com/api/v1/user/signup", formData, {
         headers: {
           "Content-type": "multipart/form-data"
         }
@@ -42,7 +42,7 @@ const Signup = () => {
 
       if (res.data.success) {
         dispatch(setToken(res.data.token))
-        const user = await axios.get('https://works-by4w.vercel.app/api/v1/user/getuser', {
+        const user = await axios.get('https://works-vpbm.onrender.com/api/v1/user/getuser', {
           headers: {
             "Content-Type": "application/json",
             token: res.data.token

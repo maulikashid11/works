@@ -10,7 +10,7 @@ const Profile = () => {
   const [jobs, setJobs] = useState([])
   useEffect(() => {
     async function getJobs() {
-      const res = await axios.get('https://works-by4w.vercel.app/api/v1/job/getalljobs')
+      const res = await axios.get('https://works-vpbm.onrender.com/api/v1/job/getalljobs')
       setJobs(res.data.jobs)
     }
     getJobs()

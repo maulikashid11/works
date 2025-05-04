@@ -30,7 +30,7 @@ const Create = () => {
         formData.append("website", website)
         formData.append("location", location)
         formData.append("file", file)
-        const res = await axios.post("https://works-by4w.vercel.app/api/v1/company/register", formData, {
+        const res = await axios.post("https://works-vpbm.onrender.com/api/v1/company/register", formData, {
             headers: {
                 "Content-type": "multipart/form-data",
                 token
