@@ -12,8 +12,7 @@ dotenv.config()
 connectToDB()
 
 app.use(cors({
-    origin: ["https://works-wheat-psi.vercel.app"],
-    methods: ["POST", "GET", "PUT", "DELETE"],
+    origin: ["https://works-wheat-psi.vercel.app/"],
     credentials: true
 }))
 app.use(express.json())
@@ -27,7 +26,7 @@ cloudinary.config({
 });
 
 app.get('/', (req, res) => {
-    res.send("this is home page")
+    res.json({a:'this is home page'})
 })
 
 app.use('/api/v1/user', userRoute)
