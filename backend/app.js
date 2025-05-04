@@ -9,14 +9,16 @@ import cors from 'cors'
 import { v2 as cloudinary } from 'cloudinary';
 const app = express()
 dotenv.config()
+connectToDB()
 
 app.use(cors({
-    origin: 'https://works-wheat-psi.vercel.app'
-}));
+    origin: ["https://works-wheat-psi.vercel.app"],
+    methods: ["POST", "GET", "PUT", "DELETE"],
+    credentials: true
+}))
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 app.use(cookieParser())
-connectToDB()
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_NAME,
