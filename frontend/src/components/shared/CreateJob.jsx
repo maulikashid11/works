@@ -32,7 +32,7 @@ const CreateJob = () => {
         })
         if (res.data.success) {
             toast.success(res.data.message)
-            navigate(`/companies/${id}`)
+            navigate(`/companies`)
         }
 
     }
