@@ -30,13 +30,13 @@ const Create = () => {
         formData.append("website", website)
         formData.append("location", location)
         formData.append("file", file)
+        
         const res = await axios.post("https://works-vpbm.onrender.com/api/v1/company/register", formData, {
             headers: {
                 "Content-type": "multipart/form-data",
                 token
             }
         })
-
         if (res.data.success) {
             toast.success(res.data.message)
             navigate('/companies')

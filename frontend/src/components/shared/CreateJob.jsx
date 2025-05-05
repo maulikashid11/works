@@ -25,19 +25,16 @@ const CreateJob = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         const { title, description, salary, experience, requirement } = details
-        try {
-            const res = await axios.post("https://works-vpbm.onrender.com/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
-                headers: {
-                    token
-                }
-            })
-            if (res.data.success) {
-                toast.success(res.data.message)
-                navigate(`/companies/${id}`)
+        const res = await axios.post("https://works-vpbm.onrender.com/api/v1/job/register", { title, description, salary, experience, requirement, companyId: id }, {
+            headers: {
+                token
             }
-        } catch (error) {
-            toast.error(error.response.data.message)
+        })
+        if (res.data.success) {
+            toast.success(res.data.message)
+            navigate(`/companies/${id}`)
         }
+
     }
 
     return (
