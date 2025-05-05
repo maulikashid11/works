@@ -38,7 +38,7 @@ const Create = () => {
         })
 
         if (res.data.success) {
-            toast.success(res.data.success)
+            toast.success(res.data.message)
             navigate('/companies')
         }
     }
