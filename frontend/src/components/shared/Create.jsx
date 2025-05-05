@@ -24,22 +24,27 @@ const Create = () => {
     }
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const { name, website, location, file } = details
-        const formData = new FormData()
-        formData.append("name", name)
-        formData.append("website", website)
-        formData.append("location", location)
-        formData.append("file", file)
-        
-        const res = await axios.post("https://works-vpbm.onrender.com/api/v1/company/register", formData, {
-            headers: {
-                "Content-type": "multipart/form-data",
-                token
+        try {
+
+            const { name, website, location, file } = details
+            const formData = new FormData()
+            formData.append("name", name)
+            formData.append("website", website)
+            formData.append("location", location)
+            formData.append("file", file)
+
+            const res = await axios.post("https://works-vpbm.onrender.com/api/v1/company/register", formData, {
+                headers: {
+                    "Content-type": "multipart/form-data",
+                    token
+                }
+            })
+            if (res.data.success) {
+                toast.success(res.data.message)
+                navigate('/companies')
             }
-        })
-        if (res.data.success) {
-            toast.success(res.data.message)
-            navigate('/companies')
+        } catch (error) {
+            toast.error(error.response.data.message)
         }
     }
 
