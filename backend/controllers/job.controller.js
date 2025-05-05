@@ -15,7 +15,7 @@ export async function createJob(req, res) {
         const job = await Job.create({
             title, description, salary, experience, requirement, company: company._id
         })
-        res.status(201).json({ success: false, message: "Job created successfully", job })
+        res.status(201).json({ success: true, message: "Job created successfully", job })
     } catch (error) {
         return res.status(404).json({ success: false, message: error.message })
 

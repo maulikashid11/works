@@ -22,8 +22,8 @@ export async function registerCompany(req, res) {
             name, website, location, companyLogo: cloudinaryResponse.secure_url, user: user._id
         })
         res.status(200).json({ success: true, message: "Company register sucessfully", company })
-        res.status(404).json({ success: false, message: "Something went wrong" })
     } catch (error) {
+        res.status(404).json({ success: false, message: "Something went wrong" })
     }
 }
 
