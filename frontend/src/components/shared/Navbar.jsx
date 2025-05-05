@@ -44,7 +44,7 @@ const Navbar = () => {
                 </Avatar>
               </PopoverTrigger>
               <PopoverContent>
-                {user.role === 'user' && <Link to="/profile">View Profile</Link>}
+                {user?.role === 'user' && <Link to="/profile">View Profile</Link>}
                 <div className='cursor-pointer' onClick={logout}>Logout</div>
               </PopoverContent>
             </Popover>
