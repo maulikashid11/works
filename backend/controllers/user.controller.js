@@ -73,7 +73,8 @@ export async function updateProfile(req, res) {
     try {
         const skillsArray = skills.split(',')
         const cloudinaryResponse = await cloudinary.uploader.upload(file, {
-            folder: "job-portal"
+            folder: "job-portal",
+            resource_type: "raw"
         })
         const user = await User.findOneAndUpdate({ email: req.user.email }, {
             fullname, email, bio, skills: skillsArray, experience, bio,
